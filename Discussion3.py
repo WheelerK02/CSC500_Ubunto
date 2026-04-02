@@ -1,4 +1,4 @@
-# I am continuing off the orignal discussion post for #1 taking into account the cookie algorithm. 
+# I am continuing off the original discussion post for #1 taking into account the cookie algorithm. 
 # I would go back to that algorithm and insert a B counter for number of batches each time we meet. 
 # Considering we meet at my house once a month this makes this a straight forward deal. 
 
@@ -30,7 +30,8 @@ print("Minimum cookie batches in a month: ", min_batches)
 # Python Crash Course, Eric Matthes, Chapter 3, page 37-38.
 
 
-# Simplier way to do this would be just using a list instead of an array, but I wanted to try out arrays for this discussion.
-# Using a list would be easier and could be set up the following way: cookie_batches = [] to create an emptly list for each year. 
+# It would be easier to do this would be just using a list instead of an array, but I wanted to try out arrays for this discussion.
+# Using a list would be set up the following way: cookie_batches = [] to create an empty list for each year. 
 # I could create a user input to ask for the number of batches each month and store them in that list. 
 # Finally I would do the same total, max and min calculations to know how much or little supplies to have on hand.
+# I am missing the break portion to have at the end of each month to stop the append and show the total, max and min for the year.
