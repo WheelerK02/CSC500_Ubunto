@@ -15,7 +15,7 @@ tip_amount = float(bill_amount * tip_percent)
 total_bill = float(bill_amount + tax_amount + tip_amount)
 
 # printing all the results 
-print(f"Bill before taxes and tip: $ format {bill_amount:.2f}")
-print(f"Taxes: $ format {tax_amount:.2f}")
-print(f"Tip: $ format {tip_amount:.2f}")
-print(f"Total bill: $ format {total_bill:.2f}")
+print(f"Bill before taxes and tip: $ {bill_amount:.2f}")
+print(f"Taxes: $  {tax_amount:.2f}")
+print(f"Tip: $  {tip_amount:.2f}")
+print(f"Total bill: $  {total_bill:.2f}")

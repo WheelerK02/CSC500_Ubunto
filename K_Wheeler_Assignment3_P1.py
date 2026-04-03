@@ -15,8 +15,13 @@ tip_amount = float(bill_amount * tip_percent)
 total_bill = float(bill_amount + tax_amount + tip_amount)
 
 # printing all the results 
-print(f'Bill before taxes and tip: ${bill_amount:.2f}')
-print(f'Taxes: ${tax_amount:.2f}')
-print(f'Tip: ${tip_amount:.2f}')
+# Using the formate method to keep it all to 2 decimal places.
+print(f'Bill before taxes and tip: $ {bill_amount:.2f}')
+print(f'Taxes: $ {tax_amount:.2f}')
+print(f'Tip: $ {tip_amount:.2f}')
 print(f'Total bill: ${total_bill:.2f}')
+
+#Resources:
+# https://www.youtube.com/watch?v=8GIqXqHDNfY, Ryan and Matt Data Science, starting at 8:17 nmiunutes, 
+# https://www.youtube.com/watch?v=FrvBwdAU2dQ, Bro Code, starting at 1.35 minutes to 2:40 minutes.
 
