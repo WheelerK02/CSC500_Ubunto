@@ -1,21 +1,48 @@
-# Write a program that calculates the total amount of a meal purchased at a restaurant. 
-# The program should ask the user to enter the charge for the food and then calculate the amounts with an 18 percent tip and 7 percent sales tax.  Display each of these amounts and the total price.
+# Many people keep time using a 24-hour clock (11 is 11am and 23 is 11pm, 0 is midnight). 
+# If it is currently 13 and you set your alarm to go off in 50 hours, it will be 15 (3pm). 
+# Write a Python program to solve the general version of the above problem. 
+# Ask the user for the time now (in hours) and then ask for the number of hours to wait for the alarm. 
+# Your program should output what the time will be on a 24-hour clock when the alarm goes off.
 
-# variables and constants
+# imports from py library.
+from datetime import date, datetime, timedelta 
 
-tax_percent = .07
-tip_percent = .18
 
-# input from customer
-bill_amount = float(input('Enter the amount of your bill in dollars and cents: $'))
+# Define out inputs from user. 
+input_period = input("Is the time in AM or PM? ")
+input_time = (input("What is the current time in hours and minutes?"))
+input_wait_time = int(input("How many hours do you want to wait for the alarm? "))
+AM_PM = input_period.upper()
+today = date.today().strftime("%d-%B-%Y")
+hours = int(input_time[:-2])
+minutes = int(input_time[-2:])
+combined_time_period = (f'{hours}:{minutes} {AM_PM} {today}')
+delta = timedelta(days=0)
 
-# calculations
-tax_amount = float(bill_amount * tax_percent)
-tip_amount = float(bill_amount * tip_percent)
-total_bill = float(bill_amount + tax_amount + tip_amount)
 
-# printing all the results 
-print(f"Bill before taxes and tip: $ {bill_amount:.2f}")
-print(f"Taxes: $  {tax_amount:.2f}")
-print(f"Tip: $  {tip_amount:.2f}")
-print(f"Total bill: $  {total_bill:.2f}")
+# work out the time converstion of the input. a
+if ":" not in input_time:
+    input_time = input_time[:-2] + ":" + input_time[-2:]
+ 
+if AM_PM == "AM":
+    if hours == 12:
+        hours = 00
+                 
+elif AM_PM == "PM":
+    if hours != 12:
+       hours += 12
+             
+return_time = (int(hours) + input_wait_time) % 24
+
+alarm_time = (f'{return_time:02d}{minutes:02d}')
+
+print(f'Current time entered: {combined_time_period}')
+print(f'Requested wait time: {input_wait_time} hours')
+print(f'Time when alarm goes off: {alarm_time}') 
+
+
+
+
+# Resources:
+# https://realpython.com/python-time-module/#dealing-with-python-time-using-seconds, accessed 3 April 26, Section Dealing with Time in Seconds.
+# https://www.youtube.com/watch?v=be0_CJ0YqoE, accessed 4 April 26, starting at 2:00 minutes                         
