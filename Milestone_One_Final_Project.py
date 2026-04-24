@@ -8,6 +8,7 @@ class ItemsToPurchase:
         self.item_name = item_name
         self.item_price = item_price
         self.item_quantity = item_quantity
+        self.item_cost = item_price * item_quantity
         ItemsToPurchase.item_count += 1
         
     def print_item_cost(self):
@@ -16,34 +17,35 @@ class ItemsToPurchase:
         
     
 #This is the market where everything happens, main fuction.
-      
-# Capture user input for the attributes. This is a very rigid and not scalable way. I know for the future of this project we will have to loop this and I expect a WHILE loop. 
-print('Item 1')
-name_one = input('Enter the item name: ')
-price_one = int(input('Enter the item price: '))
-quantity_one = int(input('Enter the item quantity: '))   
+#Blocking off to use Streamlit for the user interface, but this is the original code for the market.
+if __name__ == "__main__":      
+    # Capture user input for the attributes. This is a very rigid and not scalable way. I know for the future of this project we will have to loop this and I expect a WHILE loop. 
+    print('Item 1')
+    name_one = input('Enter the item name: ')
+    price_one = int(input('Enter the item price: '))
+    quantity_one = int(input('Enter the item quantity: '))   
 
-print('Item 2')
-name_two = input('Enter the item name: ')
-price_two = int(input('Enter the item price: '))
-quantity_two = int(input('Enter the item quantity: '))
-    
-
-# Initlize the 2 required items for MS1 based on the class above.
+    print('Item 2')
+    name_two = input('Enter the item name: ')
+    price_two = int(input('Enter the item price: '))
+    quantity_two = int(input('Enter the item quantity: '))
         
-item1 = ItemsToPurchase(name_one, price_one, quantity_one)
-item2 = ItemsToPurchase(name_two, price_two, quantity_two)
 
-#Determine total cost of each item. Very linear action not scalable.  
-item1_total_cost = item1.item_price * item1.item_quantity
-item2_total_cost = item2.item_price * item2.item_quantity
-total_cost = item1_total_cost + item2_total_cost
+    # Initlize the 2 required items for MS1 based on the class above.
+            
+    item1 = ItemsToPurchase(name_one, price_one, quantity_one)
+    item2 = ItemsToPurchase(name_two, price_two, quantity_two)
 
-#Set up output from input and based on the class above. This is very rigid and not scalable. 
-print('TOTAL COST')
-item1.print_item_cost()
-item2.print_item_cost()
-print(f'Total: ${total_cost}')
+    #Determine total cost of each item. Very linear action not scalable.  
+    item1_total_cost = item1.item_price * item1.item_quantity
+    item2_total_cost = item2.item_price * item2.item_quantity
+    total_cost = item1_total_cost + item2_total_cost
+
+    #Set up output from input and based on the class above. This is very rigid and not scalable. 
+    print('TOTAL COST')
+    item1.print_item_cost()
+    item2.print_item_cost()
+    print(f'Total: ${total_cost}')
 
 
 
