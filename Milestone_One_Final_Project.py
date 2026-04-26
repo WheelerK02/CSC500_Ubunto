@@ -4,9 +4,10 @@ class ItemsToPurchase:
     
     item_count = 0
     
-    def __init__(self, item_name='none', item_price=0, item_quantity=0):#Constructor with default values for attributes
+    def __init__(self, item_name='none', item_description='none', item_price=0,  item_quantity=0):#Constructor with default values for attributes
         self.item_name = item_name
         self.item_price = item_price
+        self.item_description = item_description
         self.item_quantity = item_quantity
         self.item_cost = item_price * item_quantity
         ItemsToPurchase.item_count += 1
@@ -23,11 +24,13 @@ if __name__ == "__main__":
     print('Item 1')
     name_one = input('Enter the item name: ')
     price_one = int(input('Enter the item price: '))
+    description_one = input('Enter the item description: ')
     quantity_one = int(input('Enter the item quantity: '))   
 
     print('Item 2')
     name_two = input('Enter the item name: ')
     price_two = int(input('Enter the item price: '))
+    description_two = input('Enter the item description: ')
     quantity_two = int(input('Enter the item quantity: '))
         
 
