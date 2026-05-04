@@ -5,7 +5,7 @@ class Character:
     def __init__(self, name, health, primary, alternate, backup):
         # Setting up the starting attributes
         self.name = name
-        self.health = health
+        self.__health = health
         self.primary = primary
         self.alternate = alternate
         self.backup = backup
@@ -50,20 +50,32 @@ class Character:
             damage_amount = 5
         else:
             damage_amount = 2
-            
-        enemy.health = enemy.health - damage_amount
+         
+        enemy.take_damage(damage_amount)             
+        print(F'{self.name} hits {enemy.name} for {damage_amount} damage! {enemy.name} has {enemy.get_health()} health left.')
+    
         
-        print(F'{self.name} hits {enemy.name} for {damage_amount} damage! {enemy.name} has {enemy.health} health left.')
+    
+    def take_damage(self, amount):
+        self.__health -= amount
+        if self.__health < 0:
+            self.__health = 0
         
+        self.health_status()    
+
+
     def health_status(self):
-        if self.health > 80:
+        if self.__health > 80:
             print(f"{self.name} is ready to fight! ⚡")
-        elif self.health <= 80 and self.health > 60:
+        elif self.__health <= 80 and self.__health > 60:
             print(f"{self.name} is on the ropes! 🥊")
-        elif self.health <= 60 and self.health >= 40:
+        elif self.__health <= 60 and self.__health >= 40:
             print(f"Finish him! {self.name} is fading fast. 🔥")
         else:
             print(f"{self.name} retreats from the battle! 🏃")
+    
+    def get_health(self):
+        return self.__health
             
 def player_choice():
     player_fighter = None
@@ -118,16 +130,17 @@ opponents = [Beast, Hog, Flash, Ice]
 opponents.remove(player_fighter)
 Computer = random.choice(opponents)
 
+print(f'You will fight against {Computer.name}!')
+print()
+print('Let the battle begin!')
+print()
 
-
-while player_fighter.health >= 40 and Computer.health >= 40:
+while player_fighter.get_health() >= 40 and Computer.get_health() >= 40:
     player_fighter.attack(Computer)
-    Computer.health_status()
-    if Computer.health >= 40:
+    Computer.get_health()
+    if Computer.get_health() >= 40:
         Computer.attack(player_fighter)
-    player_fighter.health_status()   
-        
+    player_fighter.get_health() 
+    print()
 
-
-
-
+print('The battle is over!')
